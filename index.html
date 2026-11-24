@@ -68,6 +68,11 @@ footer{color:var(--mute);font-size:13px;text-align:center;padding:10px 0 30px}
 .s-blue{fill:var(--blue)} .s-blue-st{stroke:var(--blue)} .s-blue-soft{fill:var(--blue-soft)}
 .s-green{fill:var(--green)} .s-green-soft{fill:var(--green-soft)} .s-orange{fill:var(--orange)} .s-orange-st{stroke:var(--orange)}
 .s-orange-soft{fill:var(--orange-soft)} .s-red{fill:var(--red)} .s-red-soft{fill:var(--red-soft)} .s-code{fill:var(--code)}
+.dot{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:700;vertical-align:-4px;line-height:1}
+.d-green{background:var(--green);color:var(--bg)}.d-blue{background:var(--blue);color:var(--bg)}
+.d-ring{border:2px solid var(--blue);color:var(--blue);background:var(--card)}.d-grey{background:var(--line);color:var(--mute)}
+.s-ring{fill:var(--card);stroke:var(--blue);stroke-width:2}.s-grey{fill:var(--line)}.s-on{fill:var(--bg)}
+.s-green-st{stroke:var(--green)}.s-red-st{stroke:var(--red)}
 svg text{font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Tahoma",sans-serif}
 @media print{header.top,.top-btn{display:none}section,nav.toc,.hero{box-shadow:none;break-inside:avoid}}
 </style>
@@ -81,7 +86,7 @@ svg text{font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Tahoma",sans-se
 <main>
 <div class="hero">
   <h1>คู่มือการใช้งานระบบเอกสาร PDF</h1>
-  <p>สำหรับผู้ใช้ทุกแผนก · ดู เซ็น Reject อัปโหลด และดาวน์โหลดเอกสาร · อัปเดต 20 พ.ย. 2026</p>
+  <p>สำหรับผู้ใช้ทุกแผนก · ดู เซ็น Reject อัปโหลด และดาวน์โหลดเอกสาร · อัปเดต 24 พ.ย. 2026</p>
 </div>
 
 <nav class="toc" id="toc">
@@ -91,15 +96,14 @@ svg text{font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Tahoma",sans-se
     <li><a href="#s2">หน้าเอกสาร PDF</a></li>
     <li><a href="#s3">สถานะและไอคอน</a><span class="new">ใหม่</span></li>
     <li><a href="#s4">การเซ็นเอกสาร</a><span class="new">ใหม่</span></li>
-    <li><a href="#s5">เซ็นหลายไฟล์พร้อมกัน</a><span class="new">ใหม่</span></li>
-    <li><a href="#s6">ดาวน์โหลด PDF</a><span class="new">ใหม่</span></li>
-    <li><a href="#s7">ยกเลิกลายเซ็น</a></li>
-    <li><a href="#s8">Revise และ Reject</a></li>
-    <li><a href="#s9">อัปโหลดไฟล์</a><span class="new">ใหม่</span></li>
-    <li><a href="#s10">ทำงานพร้อมกันหลายคน</a><span class="new">ใหม่</span></li>
-    <li><a href="#s11">อีเมลแจ้งเตือน</a></li>
-    <li><a href="#s12">หน้า Production</a></li>
-    <li><a href="#s13">คำถามที่พบบ่อย</a></li>
+    <li><a href="#s5">ดาวน์โหลด PDF</a><span class="new">ใหม่</span></li>
+    <li><a href="#s6">ยกเลิกลายเซ็น</a></li>
+    <li><a href="#s7">Revise และ Reject</a></li>
+    <li><a href="#s8">อัปโหลดไฟล์</a><span class="new">ใหม่</span></li>
+    <li><a href="#s9">ทำงานพร้อมกันหลายคน</a><span class="new">ใหม่</span></li>
+    <li><a href="#s10">อีเมลแจ้งเตือน</a></li>
+    <li><a href="#s11">หน้า Production</a></li>
+    <li><a href="#s12">คำถามที่พบบ่อย</a></li>
   </ol>
 </nav>
 
@@ -148,7 +152,7 @@ svg text{font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Tahoma",sans-se
   <ul>
     <li>Bom / Route: <code>CAL&lt;เลขที่&gt;_&lt;รหัสสินค้า&gt;_&lt;แบรนด์&gt;_&lt;กลุ่ม&gt;_&lt;YYYYMMDD&gt;</code></li>
     <li>Costing: <code>&lt;รหัสสินค้า&gt;_&lt;Lot&gt;_&lt;แบรนด์&gt;_&lt;กลุ่ม&gt;_&lt;YYYYMMDD&gt;</code></li>
-    <li>รอบแก้ไข (Revise) ต่อท้ายด้วย <code>_R1</code>, <code>_R2</code> … (หัวข้อ 8)</li>
+    <li>รอบแก้ไข (Revise) ต่อท้ายด้วย <code>_R1</code>, <code>_R2</code> … (หัวข้อ 7)</li>
   </ul>
 </section>
 
@@ -188,13 +192,61 @@ svg text{font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Tahoma",sans-se
   <div class="tbl"><table>
     <tr><th>เห็นแบบนี้</th><th>ความหมาย</th></tr>
     <tr><td>ไม่มีไอคอน</td><td>ยังไม่มีใครเซ็น</td></tr>
-    <tr><td><span style="color:var(--orange)">✎</span> ดินสอ</td><td>กำลังเซ็น — เซ็นแล้วบางขั้น ยังไม่ครบ</td></tr>
+    <tr><td><span style="color:var(--orange)">✎</span> ดินสอ</td><td>เซ็นแล้วบางขั้น ยังไม่ครบ (ถ้ามีวงกลมขั้นเซ็นแสดงอยู่ จะใช้วงกลมแทนดินสอ ดูด้านล่าง)</td></tr>
     <tr><td>✓ <span class="badge b-green">อนุมัติแล้ว</span></td><td>เซ็นครบทุกขั้นแล้ว</td></tr>
     <tr><td><span class="badge b-blue">R1</span> <span class="badge b-blue">R2</span></td><td>รอบแก้ไข (Revise) ตัวเลขยิ่งมากยิ่งใหม่</td></tr>
     <tr><td><span class="badge b-orange">กำลังเซ็นโดย …</span></td><td>มีคนกำลังเซ็นไฟล์นี้อยู่ตอนนี้ รอสักครู่</td></tr>
     <tr><td><span class="badge b-red">REJECT</span></td><td>ถูกปฏิเสธ เซ็นไม่ได้จนกว่าจะยกเลิก Reject</td></tr>
   </table></div>
-  <div class="tip">สถานะในรายการ<b>อัปเดตเองทุกประมาณ 10 วินาที</b> ไม่ต้องกดรีเฟรชหน้าเว็บ (หัวข้อ 10)</div>
+
+  <h3>วงกลมบอกว่าเอกสารเซ็นถึงขั้นไหน</h3>
+  <p>จำนวนวงกลมเท่ากับจำนวนช่องเซ็นที่แผนกตั้งไว้ (1–4 ช่อง) เรียงจากซ้ายไปขวาตามลำดับที่ต้องเซ็น ดูจากรายการได้เลย ไม่ต้องเปิดไฟล์</p>
+  <figure>
+    <svg viewBox="0 0 360 214" role="img" aria-label="รายการไฟล์ที่มีวงกลมขั้นเซ็น">
+      <rect class="s-bg" x="10" y="10" width="340" height="194" rx="10"/>
+      <rect class="s-bg s-line" x="22" y="20" width="316" height="34" rx="6" stroke-width="1"/><rect class="s-line" x="32" y="30" width="14" height="14" rx="3" fill="none" stroke-width="1.2"/><rect class="s-red" x="54" y="29" width="12" height="16" rx="2"/><text class="s-ink" x="74" y="42" font-size="13">160178297.pdf</text><circle class="s-green" cx="256" cy="37" r="9"/><text class="s-on" x="256" y="41" font-size="11" font-weight="700" text-anchor="middle">✓</text><circle class="s-green" cx="282" cy="37" r="9"/><text class="s-on" x="282" y="41" font-size="11" font-weight="700" text-anchor="middle">✓</text><circle class="s-ring" cx="308" cy="37" r="9"/><text class="s-blue" x="308" y="41" font-size="11" font-weight="700" text-anchor="middle">3</text>
+      <rect class="s-bg s-line" x="22" y="60" width="316" height="34" rx="6" stroke-width="1"/><rect class="s-line" x="32" y="70" width="14" height="14" rx="3" fill="none" stroke-width="1.2"/><rect class="s-red" x="54" y="69" width="12" height="16" rx="2"/><text class="s-ink" x="74" y="82" font-size="13">160178305.pdf</text><circle class="s-green" cx="256" cy="77" r="9"/><text class="s-on" x="256" y="81" font-size="11" font-weight="700" text-anchor="middle">✓</text><circle class="s-ring" cx="282" cy="77" r="9"/><text class="s-blue" x="282" y="81" font-size="11" font-weight="700" text-anchor="middle">2</text><circle class="s-grey" cx="308" cy="77" r="9"/><text class="s-mute" x="308" y="81" font-size="11" font-weight="700" text-anchor="middle">3</text>
+      <rect class="s-bg s-line" x="22" y="100" width="316" height="34" rx="6" stroke-width="1"/><rect class="s-line" x="32" y="110" width="14" height="14" rx="3" fill="none" stroke-width="1.2"/><rect class="s-red" x="54" y="109" width="12" height="16" rx="2"/><text class="s-ink" x="74" y="122" font-size="13">160178358.pdf</text><circle class="s-ring" cx="256" cy="117" r="9"/><text class="s-blue" x="256" y="121" font-size="11" font-weight="700" text-anchor="middle">1</text><circle class="s-grey" cx="282" cy="117" r="9"/><text class="s-mute" x="282" y="121" font-size="11" font-weight="700" text-anchor="middle">2</text><circle class="s-grey" cx="308" cy="117" r="9"/><text class="s-mute" x="308" y="121" font-size="11" font-weight="700" text-anchor="middle">3</text>
+      <rect class="s-green-soft" x="22" y="140" width="316" height="34" rx="6"/>
+      <text class="s-green" x="34" y="162" font-size="14" font-weight="700">✓</text>
+      <text class="s-green" x="56" y="162" font-size="13" font-weight="700">160178270</text>
+      <rect class="s-green" x="150" y="149" width="64" height="18" rx="4"/><text class="s-on" x="157" y="162" font-size="11">อนุมัติแล้ว</text>
+      <text class="s-mute" x="24" y="196" font-size="11">แถวที่ 1: เซ็นแล้ว 2 จาก 3 ขั้น · แถวที่ 4: เซ็นครบ</text>
+    </svg>
+    <figcaption>วงกลมในรายการไฟล์ (ซ้ายไปขวา = ขั้นที่ 1, 2, 3)</figcaption>
+  </figure>
+  <div class="tbl"><table>
+    <tr><th>วงกลม</th><th>ความหมาย</th></tr>
+    <tr><td style="white-space:nowrap"><span class="dot d-green">✓</span> เขียว</td><td>ขั้นนี้เซ็นแล้ว</td></tr>
+    <tr><td style="white-space:nowrap"><span class="dot d-blue">3</span> น้ำเงินทึบ</td><td>ถึงคิวของ<b>คุณ</b> กด “เซ็นเอกสาร” ได้ (เห็นเมื่อเปิดไฟล์)</td></tr>
+    <tr><td style="white-space:nowrap"><span class="dot d-ring">3</span> น้ำเงินขอบ</td><td>ขั้นถัดไปที่รอเซ็น ในรายการยังไม่บอกว่าเป็นคิวของใคร ให้เปิดไฟล์ดู ถ้าเปิดไฟล์แล้วยังเป็นขอบ แปลว่าเป็นคิวของคนอื่น</td></tr>
+    <tr><td style="white-space:nowrap"><span class="dot d-grey">3</span> เทา</td><td>ยังไม่ถึงคิว (รอขั้นก่อนหน้าเซ็นก่อน)</td></tr>
+  </table></div>
+  <figure>
+    <svg viewBox="0 0 360 150" role="img" aria-label="แถบขั้นเซ็นเหนือเอกสาร">
+      <rect class="s-bg" x="10" y="10" width="340" height="130" rx="10"/>
+      <text class="s-mute" x="22" y="24" font-size="10">แถบเหนือเอกสาร</text>
+      <rect class="s-green-soft s-line" x="18" y="28" width="104" height="44" rx="8" stroke-width="1"/><circle class="s-green" cx="34" cy="50" r="9"/><text class="s-on" x="34" y="54" font-size="11" font-weight="700" text-anchor="middle">✓</text><text class="s-ink" x="48" y="46" font-size="11" font-weight="700">ผู้จัดทำ</text><text class="s-mute" x="48" y="62" font-size="10">สมหญิง · 20/11</text>
+      <rect class="s-green-soft s-line" x="128" y="28" width="104" height="44" rx="8" stroke-width="1"/><circle class="s-green" cx="144" cy="50" r="9"/><text class="s-on" x="144" y="54" font-size="11" font-weight="700" text-anchor="middle">✓</text><text class="s-ink" x="158" y="46" font-size="11" font-weight="700">ผู้ทบทวน</text><text class="s-mute" x="158" y="62" font-size="10">สมชาย · 20/11</text>
+      <rect class="s-blue-soft s-line" x="238" y="28" width="104" height="44" rx="8" stroke-width="1"/><circle class="s-blue" cx="254" cy="50" r="9"/><text class="s-on" x="254" y="54" font-size="11" font-weight="700" text-anchor="middle">3</text><text class="s-ink" x="268" y="46" font-size="11" font-weight="700">ผู้อนุมัติ</text><text class="s-mute" x="268" y="62" font-size="10">ถัดไป</text>
+      <rect class="s-orange-soft s-orange-st" x="18" y="92" width="92" height="28" rx="7" stroke-width="1"/>
+      <text class="s-orange" x="64" y="110" font-size="10.5" font-weight="700" text-anchor="middle">Reject เอกสาร</text>
+      <rect class="s-orange-soft s-orange-st" x="120" y="92" width="96" height="28" rx="7" stroke-width="1"/>
+      <text class="s-orange" x="168" y="110" font-size="10.5" font-weight="700" text-anchor="middle">ยกเลิกการเซ็น</text>
+      <rect class="s-blue" x="238" y="92" width="104" height="28" rx="7"/>
+      <text class="s-on" x="290" y="110" font-size="11" font-weight="700" text-anchor="middle">เซ็นเอกสาร</text>
+    </svg>
+    <figcaption>แถบเหนือเอกสารที่เปิด: ขั้นที่ 3 เป็นสีน้ำเงินทึบ แปลว่าถึงคิวคุณ</figcaption>
+  </figure>
+  <h3>วิธีใช้</h3>
+  <ol>
+    <li>ดูวงกลมในรายการ รู้ทันทีว่าไฟล์ไหนเซ็นถึงขั้นไหนแล้ว</li>
+    <li>คลิกไฟล์ที่ต้องการเซ็น ดูแถบเหนือเอกสาร</li>
+    <li>ถ้าวงกลมของคุณเป็น<b>สีน้ำเงินทึบ</b>และปุ่ม <b>เซ็นเอกสาร</b> กดได้ แปลว่าถึงคิวคุณแล้ว</li>
+    <li>ถ้าไม่ใช่คิวคุณ ปุ่มเซ็นจะกดไม่ได้ และระบบบอกเหตุผลข้างปุ่ม</li>
+  </ol>
+  <div class="note">ไฟล์ที่เซ็นครบแล้วไม่แสดงวงกลม แต่แสดง ✓ สีเขียวกับป้าย “อนุมัติแล้ว” แทน ส่วนไฟล์ที่ยังไม่มีข้อมูลขั้นเซ็น จะแสดงวันที่ของไฟล์แทนวงกลม (ถ้าชื่อไฟล์ไม่มีวันที่จะขึ้นคำว่า <code>unknown</code> ถือว่าปกติ)</div>
+  <div class="tip">สถานะและวงกลมในรายการ<b>อัปเดตเองทุกประมาณ 10 วินาที</b> ไม่ต้องกดรีเฟรชหน้าเว็บ (หัวข้อ 9)</div>
 </section>
 
 <!-- 4 -->
@@ -202,7 +254,7 @@ svg text{font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Tahoma",sans-se
   <h2><span class="n">4</span>การเซ็นเอกสาร</h2>
   <ol>
     <li>เปิดแผนก และโฟลเดอร์ย่อยที่มีเอกสาร</li>
-    <li>คลิกไฟล์ ระบบจะแสดง PDF พร้อมแถบเซ็นเอกสาร</li>
+    <li>คลิกไฟล์ ระบบจะแสดง PDF พร้อมแถบเซ็นเอกสาร ดูวงกลมขั้นเซ็นบนแถบ (หัวข้อ 3) ว่าถึงคิวคุณหรือยัง</li>
     <li><b>ตรวจเอกสารให้ครบทุกหน้า</b> การเซ็นคือการยืนยันว่าคุณตรวจแล้ว</li>
     <li>ดูกรอบเส้นประบนหน้าสุดท้าย ว่าตรงช่องเซ็นของคุณ (ดูภาพ)</li>
     <li>กด <b>เซ็นเอกสาร</b> ระบบใส่ลายเซ็นและวันที่ลงในช่อง และบันทึกผู้เซ็นกับเวลา</li>
@@ -245,52 +297,7 @@ svg text{font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Tahoma",sans-se
 
 <!-- 5 -->
 <section id="s5">
-  <h2><span class="n">5</span>เซ็นหลายไฟล์พร้อมกัน</h2>
-  <p>ใช้เมื่อมีเอกสารแบบเดียวกันหลายใบที่ถึงคิวคุณ ไม่ต้องเปิดเซ็นทีละใบ</p>
-  <figure>
-    <svg viewBox="0 0 360 300" role="img" aria-label="เลือกหลายไฟล์และยืนยันเซ็น">
-      <rect class="s-bg" x="10" y="10" width="340" height="280" rx="10"/>
-      <rect class="s-blue" x="22" y="22" width="132" height="28" rx="6"/>
-      <text x="34" y="41" font-size="12" fill="#fff">✍ เซ็นที่เลือก (3)</text>
-      <text class="s-mute" x="166" y="41" font-size="12">ล้างที่เลือก</text>
-      <g font-size="13">
-        <rect class="s-blue" x="26" y="64" width="16" height="16" rx="3"/><text x="29" y="77" font-size="12" fill="#fff">✓</text>
-        <text class="s-ink" x="52" y="77">160178915.pdf</text>
-        <rect class="s-blue" x="26" y="92" width="16" height="16" rx="3"/><text x="29" y="105" font-size="12" fill="#fff">✓</text>
-        <text class="s-ink" x="52" y="105">160179159.pdf</text>
-        <rect class="s-blue" x="26" y="120" width="16" height="16" rx="3"/><text x="29" y="133" font-size="12" fill="#fff">✓</text>
-        <text class="s-ink" x="52" y="133">160179658.pdf</text>
-        <rect x="26" y="148" width="16" height="16" rx="3" fill="none" stroke="#9aa4b5" stroke-width="1"/>
-        <text class="s-mute" x="52" y="161">160179727.pdf</text>
-      </g>
-      <!-- dialog -->
-      <rect class="s-bg s-blue-st" x="40" y="176" width="280" height="104" rx="10" stroke-width="1.5"/>
-      <text class="s-ink" x="54" y="198" font-size="13" font-weight="700">ยืนยันเซ็น 3 ไฟล์</text>
-      <rect class="s-code" x="54" y="208" width="252" height="24" rx="5"/>
-      <text class="s-ink" x="62" y="225" font-size="12">รูปแบบลายเซ็น: ค่าเริ่มต้น ▾</text>
-      <rect class="s-green" x="54" y="242" width="136" height="28" rx="6"/>
-      <text x="66" y="261" font-size="12" fill="#fff">ยืนยันเซ็น 3 ไฟล์</text>
-      <text class="s-mute" x="206" y="261" font-size="12">ยกเลิก</text>
-    </svg>
-    <figcaption>ติ๊กเลือกไฟล์ → เซ็นที่เลือก → เลือกรูปแบบลายเซ็น → ยืนยัน</figcaption>
-  </figure>
-  <ol>
-    <li>ในรายการเอกสาร ติ๊กช่องหน้าไฟล์ที่ต้องการ (สูงสุด 20 ไฟล์ต่อครั้ง)</li>
-    <li>กด <b>เซ็นที่เลือก (N)</b></li>
-    <li>ตรวจรายชื่อไฟล์ในหน้าต่างยืนยัน และเลือก<b>รูปแบบลายเซ็น</b>ครั้งเดียว (ระบบจำรูปแบบที่คุณเลือกล่าสุดไว้ให้)</li>
-    <li>กด <b>ยืนยันเซ็น N ไฟล์</b> ระบบเซ็นทีละไฟล์ และแสดงผลรายไฟล์ สำเร็จ / ข้าม / ล้มเหลว</li>
-    <li>ไฟล์ที่ล้มเหลว กด <b>ลองใหม่เฉพาะที่ล้มเหลว</b></li>
-  </ol>
-  <ul>
-    <li>ติ๊กได้เฉพาะไฟล์ที่ถึงคิวคุณ เป็นรอบล่าสุด ไม่ถูก Reject และอยู่แผนกเดียวกัน</li>
-    <li>ไฟล์ที่ระบบหาช่องเซ็นอัตโนมัติไม่เจอจะถูก<b>ข้าม</b> พร้อมข้อความ "หาช่องเซ็นไม่เจอ กรุณาเปิดเซ็นทีละไฟล์" ระบบจะไม่เซ็นแบบเดา</li>
-  </ul>
-  <div class="note">การเซ็นหลายไฟล์คือการเซ็นจริงทุกใบ ตรวจเอกสารให้ครบก่อนกดยืนยัน</div>
-</section>
-
-<!-- 6 -->
-<section id="s6">
-  <h2><span class="n">6</span>ดาวน์โหลด PDF</h2>
+  <h2><span class="n">5</span>ดาวน์โหลด PDF</h2>
   <p>ดาวน์โหลดได้ทุกสถานะ ไฟล์ที่ได้มีลายเซ็นเท่าที่เซ็นไปแล้ว ไม่ว่าเซ็นกี่ช่อง</p>
   <figure>
     <svg viewBox="0 0 360 96" role="img" aria-label="ปุ่มดาวน์โหลด">
@@ -311,20 +318,20 @@ svg text{font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Tahoma",sans-se
   <div class="warn">ไฟล์ที่ดาวน์โหลดเป็นข้อมูลความลับ เก็บในเครื่องของบริษัทเท่านั้น</div>
 </section>
 
-<!-- 7 -->
-<section id="s7">
-  <h2><span class="n">7</span>ยกเลิกลายเซ็น</h2>
+<!-- 6 -->
+<section id="s6">
+  <h2><span class="n">6</span>ยกเลิกลายเซ็น</h2>
   <p>ถ้าเซ็นผิด ยกเลิกลายเซ็นของตัวเองได้จากแถบเซ็นของเอกสารนั้น เอกสารจะกลับไปรอเซ็นขั้นนั้นอีกครั้ง</p>
   <ul>
     <li>ยกเลิกได้เฉพาะลายเซ็นของตัวเอง (หรือผู้ดูแลระบบทำแทน)</li>
     <li>ไม่มีการลบประวัติ ระบบบันทึกว่ามีการยกเลิกและใครทำ</li>
-    <li>ถ้าเอกสารเซ็นครบแล้วแต่ต้องแก้ ให้ใช้ Reject แล้วรอรอบใหม่ (หัวข้อ 8)</li>
+    <li>ถ้าเอกสารเซ็นครบแล้วแต่ต้องแก้ ให้ใช้ Reject แล้วรอรอบใหม่ (หัวข้อ 7)</li>
   </ul>
 </section>
 
-<!-- 8 -->
-<section id="s8">
-  <h2><span class="n">8</span>Revise และ Reject</h2>
+<!-- 7 -->
+<section id="s7">
+  <h2><span class="n">7</span>Revise และ Reject</h2>
   <p><b>Revise</b> คือเอกสารรอบใหม่ที่แก้แล้ว <b>Reject</b> คือการปฏิเสธเอกสารที่ข้อมูลผิด</p>
   <h3>8.1 รอบแก้ไข (Revise)</h3>
   <figure>
@@ -360,14 +367,14 @@ svg text{font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Tahoma",sans-se
   <ol>
     <li>ผู้เซ็นพบข้อมูลผิด → Reject พร้อมเหตุผล</li>
     <li>ผู้เซ็นขั้นก่อนหน้าได้อีเมลแจ้ง</li>
-    <li>เจ้าของงานแก้ แล้วออกรอบใหม่ (จาก AX หรืออัปโหลดชื่อเดิมซ้ำ หัวข้อ 9)</li>
+    <li>เจ้าของงานแก้ แล้วออกรอบใหม่ (จาก AX หรืออัปโหลดชื่อเดิมซ้ำ หัวข้อ 8)</li>
     <li>รอบใหม่เซ็นใหม่ตั้งแต่ขั้นแรก รอบที่ถูก Reject ยังเก็บไว้เป็นหลักฐาน</li>
   </ol>
 </section>
 
-<!-- 9 -->
-<section id="s9">
-  <h2><span class="n">9</span>อัปโหลดไฟล์</h2>
+<!-- 8 -->
+<section id="s8">
+  <h2><span class="n">8</span>อัปโหลดไฟล์</h2>
   <p>เอกสารต้นทุนส่วนใหญ่มาจาก AX อัตโนมัติ เอกสารอื่นอัปโหลดเองได้ (เฉพาะคนที่มีสิทธิ์)</p>
   <figure>
     <svg viewBox="0 0 360 270" role="img" aria-label="หน้าต่างอัปโหลด PDF">
@@ -404,9 +411,9 @@ svg text{font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Tahoma",sans-se
   <div class="warn">ห้ามเปลี่ยนชื่อ ย้าย หรือลบไฟล์ในไฟล์แชร์ด้วยมือ ลายเซ็นผูกกับชื่อและที่เก็บไฟล์</div>
 </section>
 
-<!-- 10 -->
-<section id="s10">
-  <h2><span class="n">10</span>ทำงานพร้อมกันหลายคน</h2>
+<!-- 9 -->
+<section id="s9">
+  <h2><span class="n">9</span>ทำงานพร้อมกันหลายคน</h2>
   <p>หน้าเอกสารอัปเดตสถานะเองทุกประมาณ 10 วินาที เมื่อมีคนอื่นเซ็นหรืออัปโหลด คุณจะเห็นการเปลี่ยนแปลงโดยไม่ต้องรีเฟรช</p>
   <figure>
     <svg viewBox="0 0 360 160" role="img" aria-label="แถบแจ้งว่าเอกสารถูกอัปเดตโดยผู้อื่น">
@@ -421,15 +428,15 @@ svg text{font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Tahoma",sans-se
     <figcaption>ตัวอย่างสิ่งที่เห็นเมื่อมีคนอื่นทำงานกับเอกสารเดียวกัน</figcaption>
   </figure>
   <ul>
-    <li><b>กำลังเซ็นโดย …</b> = มีคนกำลังเซ็นไฟล์นี้ ปุ่มเซ็นและช่องติ๊กของไฟล์นั้นถูกปิดชั่วคราว (ไม่เกิน 10 นาที)</li>
+    <li><b>กำลังเซ็นโดย …</b> = มีคนกำลังเซ็นไฟล์นี้ ปุ่มเซ็นของไฟล์นั้นถูกปิดชั่วคราว (ไม่เกิน 10 นาที)</li>
     <li><b>เอกสารนี้ถูกอัปเดตโดยผู้อื่น</b> = มีคนเพิ่งเซ็นเอกสารที่คุณเปิดอยู่ กด <b>โหลดใหม่</b> ก่อนทำต่อ</li>
     <li>ถ้าสองคนกดเซ็นขั้นเดียวกันพร้อมกัน ระบบให้ได้แค่คนเดียว อีกคนจะเห็นข้อความ "มีผู้อื่นกำลังเซ็นขั้นนี้อยู่" ลายเซ็นไม่ซ้อนกัน</li>
   </ul>
 </section>
 
-<!-- 11 -->
-<section id="s11">
-  <h2><span class="n">11</span>อีเมลแจ้งเตือน</h2>
+<!-- 10 -->
+<section id="s10">
+  <h2><span class="n">10</span>อีเมลแจ้งเตือน</h2>
   <p>อีเมลจากระบบมีหัวเรื่องขึ้นต้นว่า <code>IDF-E-Doc |</code></p>
   <div class="tbl"><table>
     <tr><th>หัวเรื่อง</th><th>ส่งถึง</th><th>เมื่อไร</th></tr>
@@ -444,9 +451,9 @@ svg text{font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Tahoma",sans-se
   <div class="warn">ระวังอีเมลปลอมที่แนบไฟล์แปลก ๆ หรือขอรหัสผ่าน อีเมลจริงของระบบไม่เคยขอรหัสผ่าน</div>
 </section>
 
-<!-- 12 -->
-<section id="s12">
-  <h2><span class="n">12</span>หน้า Production</h2>
+<!-- 11 -->
+<section id="s11">
+  <h2><span class="n">11</span>หน้า Production</h2>
   <p>แสดงแผนการผลิตรายวัน ดึงจาก AX อัตโนมัติทุกเช้า 07:00 น. จัดกลุ่มตามวันที่ควบคุมการผลิต</p>
   <ul>
     <li>ข้อมูลต่อรายการ: รหัสสินค้า เลขใบสั่งผลิต ชื่อสินค้า แบรนด์ วันส่ง จำนวนสั่ง ส่งแล้ว คงเหลือ และมูลค่าคงเหลือ</li>
@@ -456,20 +463,20 @@ svg text{font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Tahoma",sans-se
   </ul>
 </section>
 
-<!-- 13 -->
-<section id="s13">
-  <h2><span class="n">13</span>คำถามที่พบบ่อย</h2>
+<!-- 12 -->
+<section id="s12">
+  <h2><span class="n">12</span>คำถามที่พบบ่อย</h2>
   <div class="tbl"><table>
     <tr><th>คำถาม</th><th>คำตอบ</th></tr>
     <tr><td>ล็อกอินไม่ได้</td><td>ตรวจชื่อผู้ใช้และรหัสผ่าน ยังไม่ได้ให้แจ้งผู้ดูแลระบบรีเซ็ต</td></tr>
     <tr><td>ไม่เห็นแผนกที่ควรเห็น</td><td>ยังไม่มีสิทธิ์ แจ้งผู้ดูแลระบบ</td></tr>
     <tr><td>ปุ่มเซ็นกดไม่ได้</td><td>ยังไม่ถึงคิว เอกสารถูก Reject มีคนกำลังเซ็นอยู่ หรือไม่มีสิทธิ์ขั้นนั้น ระบบบอกเหตุผล</td></tr>
+    <tr><td>วงกลมในรายการเป็นขอบน้ำเงิน แต่ปุ่มเซ็นกดไม่ได้</td><td>ขั้นนั้นเป็นคิวของคนอื่น ดูแถบเหนือเอกสาร วงกลมของคุณต้องเป็นสีน้ำเงินทึบถึงจะเซ็นได้</td></tr>
     <tr><td>กรอบช่องเซ็นเป็นสีส้ม</td><td>ระบบหาช่องเซ็นอัตโนมัติไม่เจอ ตรวจตำแหน่งก่อนเซ็น ถ้าไม่ตรงแจ้งผู้ดูแลระบบ</td></tr>
-    <tr><td>เซ็นหลายไฟล์แล้วบางไฟล์ถูกข้าม</td><td>ไฟล์นั้นหาช่องเซ็นไม่เจอ เปิดเซ็นทีละไฟล์</td></tr>
     <tr><td>อัปไฟล์แก้ไขแล้ว แต่ชื่อเดิม</td><td>อัปชื่อเดิมได้เลย ระบบตั้งเป็น _R1, _R2 ให้</td></tr>
     <tr><td>เห็นไฟล์หลายรอบ ใช้อันไหน</td><td>ใช้แถวหลัก (รอบล่าสุด) เท่านั้น</td></tr>
     <tr><td>Reject ผิดใบ</td><td>คนที่ Reject หรือผู้ดูแลระบบ กด "ยกเลิกการ Reject"</td></tr>
-    <tr><td>เซ็นผิดใบ</td><td>ยกเลิกลายเซ็นของตัวเองได้ (หัวข้อ 7) ประวัติยังเก็บไว้</td></tr>
+    <tr><td>เซ็นผิดใบ</td><td>ยกเลิกลายเซ็นของตัวเองได้ (หัวข้อ 6) ประวัติยังเก็บไว้</td></tr>
     <tr><td>รูปในเอกสารไม่ขึ้น</td><td>กดรีเฟรชหน้าเว็บ ถ้ายังไม่ขึ้นแจ้งผู้ดูแลระบบพร้อมชื่อไฟล์</td></tr>
     <tr><td>เอกสารใหม่จาก AX ยังไม่ขึ้น</td><td>ให้ฝ่ายงานตรวจว่า Export จาก AX แล้ว ถ้ายังไม่มาแจ้งฝ่าย IT</td></tr>
   </table></div>
